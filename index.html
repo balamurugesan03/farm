@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sreechandhinees Group of Companies | Rooted in Kerala</title>
-  <meta name="description" content="Sreechandhinees Group of Companies — a diversified Kerala organization spanning farm stays, dairy exports, temple trust, gold & diamonds and film productions. Founded on Quality, Integrity and Innovation.">
+  <meta name="description" content="Sreechandhinees Group of Companies — a diversified Kerala organization spanning farm stays, dairy exports, temple trust, gold &amp; diamonds and film productions. Founded on Quality, Integrity and Innovation.">
   <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="page-home">
 
   <!-- Preloader -->
   <div class="preloader" id="preloader">
@@ -25,7 +25,7 @@
   <!-- Header -->
   <header class="header" id="header">
     <div class="container header__inner">
-      <a href="#home" class="brand" aria-label="Sreechandhinees home">
+      <a href="index.html" class="brand" aria-label="Sreechandhinees home">
         <span class="brand__mark"><img src="assets/img/logo.jpg" alt="Sreechandhinees Farm logo"></span>
         <span class="brand__text">
           <strong>Sreechandhinees</strong>
@@ -35,14 +35,15 @@
 
       <nav class="nav" id="nav" aria-label="Primary">
         <ul class="nav__list">
-          <li><a href="#about" class="nav__link">About</a></li>
-          <li><a href="#divisions" class="nav__link">Divisions</a></li>
-          <li><a href="#partner" class="nav__link">Partner</a></li>
-          <li><a href="#leadership" class="nav__link">Leadership</a></li>
-          <li><a href="#vision" class="nav__link">Vision</a></li>
-          <li><a href="#contact" class="nav__link">Contact</a></li>
+          <li><a href="index.html" class="nav__link is-active" aria-current="page">Home</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="divisions.html" class="nav__link">Divisions</a></li>
+          <li><a href="partner.html" class="nav__link">Partner</a></li>
+          <li><a href="leadership.html" class="nav__link">Leadership</a></li>
+          <li><a href="vision.html" class="nav__link">Vision</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
         </ul>
-        <a href="#contact" class="btn btn--gold nav__cta">Get in Touch</a>
+        <a href="contact.html" class="btn btn--gold nav__cta">Get in Touch</a>
       </nav>
 
       <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
@@ -52,7 +53,6 @@
   </header>
 
   <main>
-    <!-- Hero -->
     <section class="hero" id="home">
       <div class="hero__bg" aria-hidden="true">
         <div class="hero__glow hero__glow--1"></div>
@@ -75,10 +75,10 @@
             Sreechandhinees Group of Companies is a diversified organization reflecting Kerala’s spirit of resilience, creativity and prosperity — from sustainable farms and dairy exports to spirituality, jewelry and cinema.
           </p>
           <div class="hero__actions reveal">
-            <a href="#divisions" class="btn btn--gold">Explore Our Divisions
+            <a href="divisions.html" class="btn btn--gold">Explore Our Divisions
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a href="#about" class="btn btn--ghost">Our Story</a>
+            <a href="about.html" class="btn btn--ghost">Our Story</a>
           </div>
 
           <ul class="hero__stats reveal">
@@ -90,15 +90,43 @@
         </div>
 
         <div class="hero__visual reveal">
-          <div class="hero__arch">
-            <img src="assets/img/hero-art.jpg" alt="Kerala heritage collage — cow, paddy fields, coconut palms, dairy and cinema" data-parallax="0.06">
+          <div class="hero-slider" id="heroSlider" aria-roledescription="carousel" aria-label="Sreechandhinees divisions">
+            <div class="hero__arch">
+              <figure class="slide is-active" data-title="Sreechandhinees Group" data-label="Since our roots in Kerala" data-href="about.html">
+                <img src="assets/img/hero-art.jpg" alt="Kerala heritage collage — cow, paddy fields, coconut palms, dairy and cinema" style="object-position: 50% 15%">
+              </figure>
+              <figure class="slide" data-title="Farm Products &amp; Farm Stay" data-label="Division 01" data-href="farm.html">
+                <img src="assets/img/farm.jpg" alt="Cattle resting by the lake at the Sreechandhinees farm" loading="lazy" style="object-position: 38% 50%">
+              </figure>
+              <figure class="slide slide--contain" data-title="Pavithra Dairy Exports" data-label="Division 02" data-href="dairy.html">
+                <span class="slide__backdrop" style="background-image:url('assets/img/dairy-products.jpg')"></span>
+                <img src="assets/img/dairy-products.jpg" alt="Pavithra dairy products" loading="lazy">
+              </figure>
+              <figure class="slide slide--contain" data-title="Sivam Foundation Temple Trust" data-label="Division 03" data-href="temple.html">
+                <span class="slide__backdrop" style="background-image:url('assets/img/shivalinga.jpg')"></span>
+                <img src="assets/img/shivalinga.jpg" alt="Sree Dakshinamoorthi Vidyapeeth Shivalinga" loading="lazy">
+              </figure>
+              <figure class="slide" data-title="Emma Gold &amp; Diamonds" data-label="Division 04" data-href="jewelry.html">
+                <img src="assets/img/jewelry.jpg" alt="Traditional Kerala gold jewelry" loading="lazy" style="object-position: 50% 40%">
+              </figure>
+              <figure class="slide" data-title="Sreerudram Creations" data-label="Division 05" data-href="film.html">
+                <img src="assets/img/film.jpg" alt="Film clapperboard" loading="lazy" style="object-position: 45% 50%">
+              </figure>
+            </div>
+
+            <div class="hero__card glass" aria-live="polite">
+              <span class="hero__card-label"><b id="slideNum">01</b> / 06 · <span id="slideLabel">Since our roots in Kerala</span></span>
+              <a href="about.html" class="hero__card-value" id="slideTitle">Sreechandhinees Group</a>
+            </div>
+
+            <div class="slider-ui">
+              <button class="slider-btn" data-dir="-1" aria-label="Previous slide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+              <div class="slider-dots" role="tablist"></div>
+              <button class="slider-btn" data-dir="1" aria-label="Next slide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+            </div>
           </div>
           <div class="hero__badge">
             <img src="assets/img/logo.jpg" alt="">
-          </div>
-          <div class="hero__card glass">
-            <span class="hero__card-label">Founded on</span>
-            <span class="hero__card-value">Quality · Integrity · Innovation</span>
           </div>
         </div>
       </div>
@@ -108,7 +136,6 @@
       </a>
     </section>
 
-    <!-- Marquee -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
         <span>Farm Products &amp; Farm Stay</span><b>✦</b>
@@ -126,7 +153,6 @@
       </div>
     </div>
 
-    <!-- About -->
     <section class="section about" id="about">
       <div class="container about__grid">
         <div class="about__intro">
@@ -140,6 +166,7 @@
           <p class="reveal">
             Today, we span multiple industries reflecting Kerala’s spirit of resilience, creativity, and prosperity. Every venture is more than just a business — it is a living expression of our values, our heritage, and our commitment to a better future.
           </p>
+          <a href="about.html" class="link-arrow reveal">More about us <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
 
@@ -171,7 +198,7 @@
       </div>
     </section>
 
-    <!-- Divisions -->
+    
     <section class="section divisions" id="divisions">
       <div class="container">
         <div class="section__head section__head--center">
@@ -179,339 +206,96 @@
           <h2 class="section__title reveal">Five ventures. <em>One</em> shared heritage.</h2>
           <p class="section__sub reveal">Each division carries the Sreechandhinees promise — tradition, innovation and excellence across industries.</p>
         </div>
-
-        <div class="div-tabs reveal" role="tablist" aria-label="Divisions">
-          <a href="#farm" class="div-tab">Farm Stay</a>
-          <a href="#dairy" class="div-tab">Dairy Exports</a>
-          <a href="#temple" class="div-tab">Temple Trust</a>
-          <a href="#jewelry" class="div-tab">Gold &amp; Diamonds</a>
-          <a href="#film" class="div-tab">Film Productions</a>
-        </div>
-
-        <!-- Farm -->
-        <article class="division" id="farm">
-          <div class="division__media reveal">
-            <div class="frame">
-              <img src="assets/img/farm.jpg" alt="Cattle resting by the lakeside at the Sreechandhinees farm" loading="lazy" data-parallax="0.04">
+        <div class="div-grid">
+          <a href="farm.html" class="div-card reveal">
+            <div class="div-card__media">
+              <img src="assets/img/farm.jpg" alt="Farm Products &amp; Farm Stay" loading="lazy">
+              <span class="div-card__logo "><img src="assets/img/logo.jpg" alt=""></span>
             </div>
-            <div class="division__logo"><img src="assets/img/logo.jpg" alt="Sreechandhinees Farm logo"></div>
-          </div>
-          <div class="division__content">
-            <span class="division__index reveal">01</span>
-            <p class="kicker reveal">Sreechandhinees</p>
-            <h3 class="division__title reveal">Farm Products &amp; Farm Stay <small>Pvt. Ltd.</small></h3>
-            <p class="reveal">Our traditional Kerala-style farms offer lush, immersive experiences through sustainable farming and authentic farm-stay tourism.</p>
-            <p class="reveal">Visitors reconnect with nature’s rhythms, experience organic living, and enjoy timeless Kerala hospitality.</p>
-            <ul class="ticks reveal">
-              <li>Sustainable, organic farming</li>
-              <li>Authentic Kerala farm-stay tourism</li>
-              <li>Timeless Kerala hospitality</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- Dairy -->
-        <article class="division division--reverse division--dark" id="dairy">
-          <div class="division__media reveal">
-            <div class="frame frame--light">
-              <img src="assets/img/dairy-products.jpg" alt="Pavithra dairy products — yogurt, ice cream, milk, ghee, butter and curd" loading="lazy">
+            <div class="div-card__body">
+              <span class="div-card__num">01</span>
+              <p class="div-card__kicker">Sreechandhinees</p>
+              <h3>Farm Products &amp; Farm Stay</h3>
+              <p>Lush, immersive farm experiences — organic living and timeless Kerala hospitality.</p>
+              <span class="div-card__more">Explore <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </div>
-            <div class="brand-chip"><span>Pavithra</span> Products</div>
-          </div>
-          <div class="division__content">
-            <span class="division__index reveal">02</span>
-            <p class="kicker reveal">Sreechandhinees</p>
-            <h3 class="division__title reveal">Dairy Exports</h3>
-            <p class="reveal">Home of the <strong>Pavithra</strong> brand — a complete portfolio of wholesome dairy, prepared with care and ready for export markets.</p>
-            <div class="products reveal">
-              <span>Milk</span><span>Curd</span><span>Butter</span><span>Ghee</span><span>Cheese</span>
-              <span>Yogurt</span><span>Paneer</span><span>Buttermilk</span><span>Ice Cream</span>
-              <span>Milk Powder</span><span>Condensed Milk</span><span>Evaporated Milk</span>
-              <span>Whey Protein Powder</span><span>Yogurt Drinks</span><span>Dairy-Based Beverages</span>
+          </a>
+          <a href="dairy.html" class="div-card reveal">
+            <div class="div-card__media div-card__media--light">
+              <img src="assets/img/dairy-products.jpg" alt="Dairy Exports" loading="lazy">
+              <span class="div-card__chip"><em>Pavithra</em> Products</span>
             </div>
-          </div>
-        </article>
-
-        <!-- Temple -->
-        <article class="division" id="temple">
-          <div class="division__media reveal">
-            <div class="frame frame--gold">
-              <img src="assets/img/shivalinga.jpg" alt="Render of the Shivalinga-shaped Sree Dakshinamoorthi Vidyapeeth" loading="lazy">
+            <div class="div-card__body">
+              <span class="div-card__num">02</span>
+              <p class="div-card__kicker">Sreechandhinees</p>
+              <h3>Dairy Exports</h3>
+              <p>The Pavithra range — milk, curd, ghee, butter, cheese, ice cream and more.</p>
+              <span class="div-card__more">Explore <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </div>
-            <div class="division__logo division__logo--round"><img src="assets/img/sivam-logo.jpg" alt="Sivam Foundation logo"></div>
-            <div class="stat-float glass">
-              <strong><b data-count="144">0</b> ft</strong>
-              <span>Set to be the world’s largest Shivalinga</span>
+          </a>
+          <a href="temple.html" class="div-card reveal">
+            <div class="div-card__media">
+              <img src="assets/img/shivalinga.jpg" alt="Temple Trust" loading="lazy">
+              <span class="div-card__logo div-card__logo--round"><img src="assets/img/sivam-logo.jpg" alt=""></span>
             </div>
-          </div>
-          <div class="division__content">
-            <span class="division__index reveal">03</span>
-            <p class="kicker reveal">Sreechandhinees Temple Trust</p>
-            <h3 class="division__title reveal">Sivam Foundation <small>Thapovanam · Sree Dakshinamoorthi Vidyapeeth — Spiritual University</small></h3>
-            <p class="reveal">Dakshinamurthy Vidyapeeth is a Shivalinga-shaped spiritual university established under the auspices of Kodakara Vattekkad Sree Dakshinamurthy Navagraha Temple, under the guidance of Acharya Brahmasree Aswini Deva Tantri. Once completed, it will be the largest Shivalinga in the world, rising 144 feet.</p>
-            <p class="reveal">The Vedas, Puranas, Upanishads, Shastras, Art and Sanskrit are taught here in the gurukula tradition — carrying forward the spiritual wisdom of great souls like Adi Shankara and Sree Narayana Deva, in harmony with nature, for the well-being and happiness of all living beings.</p>
-          </div>
-        </article>
-
-        <!-- Jewelry -->
-        <article class="division division--reverse division--noir" id="jewelry">
-          <div class="division__media reveal">
-            <div class="frame frame--gold">
-              <img src="assets/img/jewelry.jpg" alt="Traditional Kerala gold jewelry on a red silk saree" loading="lazy" data-parallax="0.04">
+            <div class="div-card__body">
+              <span class="div-card__num">03</span>
+              <p class="div-card__kicker">Sivam Foundation</p>
+              <h3>Temple Trust</h3>
+              <p>Sree Dakshinamoorthi Vidyapeeth — set to be the world’s largest Shivalinga.</p>
+              <span class="div-card__more">Explore <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </div>
-            <div class="division__logo division__logo--square"><img src="assets/img/emma-logo.jpg" alt="Emma Gold &amp; Diamonds logo"></div>
-          </div>
-          <div class="division__content">
-            <span class="division__index reveal">04</span>
-            <p class="kicker reveal">Sreechandhinees</p>
-            <h3 class="division__title reveal">Emma Gold &amp; Diamonds</h3>
-            <p class="reveal">We blend Kerala’s rich jewelry artistry with contemporary luxury, offering handcrafted pieces that celebrate life’s special moments.</p>
-            <p class="reveal">Each creation embodies timeless beauty and craftsmanship.</p>
-            <ul class="ticks reveal">
-              <li>Handcrafted heritage designs</li>
-              <li>Contemporary luxury</li>
-              <li>For life’s special moments</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- Film -->
-        <article class="division" id="film">
-          <div class="division__media reveal">
-            <div class="frame frame--aqua">
-              <img src="assets/img/film.jpg" alt="Hands holding a film clapperboard" loading="lazy">
+          </a>
+          <a href="jewelry.html" class="div-card reveal">
+            <div class="div-card__media">
+              <img src="assets/img/jewelry.jpg" alt="Emma Gold &amp; Diamonds" loading="lazy">
+              <span class="div-card__logo div-card__logo--square"><img src="assets/img/emma-logo.jpg" alt=""></span>
             </div>
-            <div class="division__logo division__logo--square"><img src="assets/img/sreerudram-logo.jpg" alt="Sreerudram Creations logo"></div>
-          </div>
-          <div class="division__content">
-            <span class="division__index reveal">05</span>
-            <p class="kicker reveal">Sreechandhinees Film Productions</p>
-            <h3 class="division__title reveal">Sreerudram Creations</h3>
-            <p class="reveal">From creative ideation to cinematic production, we craft inspiring stories that entertain and enlighten.</p>
-            <p class="reveal">Our division nurtures local talents and connects Kerala’s cultural narratives to global audiences.</p>
-            <ul class="ticks reveal">
-              <li>Creative ideation to cinematic production</li>
-              <li>Nurturing local talent</li>
-              <li>Kerala stories for global audiences</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Partner -->
-    <section class="section partner" id="partner">
-      <div class="container partner__grid">
-        <div class="partner__logo reveal">
-          <img src="assets/img/greenlee-logo.jpg" alt="Green Lee Builder's Pvt. Ltd. logo" loading="lazy">
-        </div>
-        <div class="partner__content">
-          <p class="kicker reveal">Our Partner</p>
-          <h2 class="section__title reveal">Green Lee Builder’s <em>Pvt. Ltd.</em></h2>
-          <blockquote class="partner__quote reveal">“We Build the World, The Way You Dream.”</blockquote>
-          <a href="https://www.greenleebuilders.com" target="_blank" rel="noopener" class="link-arrow reveal">
-            www.greenleebuilders.com
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            <div class="div-card__body">
+              <span class="div-card__num">04</span>
+              <p class="div-card__kicker">Sreechandhinees</p>
+              <h3>Emma Gold &amp; Diamonds</h3>
+              <p>Handcrafted pieces that celebrate life’s special moments.</p>
+              <span class="div-card__more">Explore <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+          <a href="film.html" class="div-card reveal">
+            <div class="div-card__media">
+              <img src="assets/img/film.jpg" alt="Sreerudram Creations" loading="lazy">
+              <span class="div-card__logo div-card__logo--square"><img src="assets/img/sreerudram-logo.jpg" alt=""></span>
+            </div>
+            <div class="div-card__body">
+              <span class="div-card__num">05</span>
+              <p class="div-card__kicker">Film Productions</p>
+              <h3>Sreerudram Creations</h3>
+              <p>Inspiring stories that entertain, enlighten and nurture local talent.</p>
+              <span class="div-card__more">Explore <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Leadership -->
-    <section class="section leadership" id="leadership">
-      <div class="container">
-        <div class="section__head section__head--center">
-          <p class="kicker reveal">Leadership</p>
-          <h2 class="section__title reveal">The people behind <em>the promise.</em></h2>
-        </div>
-
-        <div class="chair reveal">
-          <div class="chair__photo">
-            <img src="assets/team/pradeepa.jpg" alt="Pradeepa Sajeevu" loading="lazy">
-          </div>
-          <div class="chair__content">
-            <p class="kicker">Chairperson (Founder) · Managing Director</p>
-            <h3>Pradeepa Sajeevu</h3>
-            <p>Experienced and motivated Founder and Chairperson with a proven track record in the farming industry. Strong leadership, strategic planning expertise and excellent communication have led to the successful completion of projects, revenue growth and increased profitability.</p>
-            <p>A Bachelor of Science from the University of Kerala, PMP certified, and a graduate of a Leadership Development Program — highly proficient in English, Hebrew and Arabic. Most proud of advocating sustainable initiatives in farming and managing an award-winning project, while building relationships to take the business into international markets such as the UAE, Bahrain, Israel and Europe.</p>
-            <ul class="chair__tags">
-              <li>B.Sc — University of Kerala</li>
-              <li>PMP Certified</li>
-              <li>English · Hebrew · Arabic</li>
-            </ul>
-          </div>
-        </div>
-
-        <h3 class="team__label reveal">Directors &amp; General Management</h3>
-        <div class="team team--3">
-          <figure class="member reveal">
-            <div class="member__photo"><img src="assets/team/sajeevu.jpg" alt="Sajeevu P.I" loading="lazy"></div>
-            <figcaption><strong>Sajeevu P.I</strong><span>Director</span></figcaption>
-          </figure>
-          <figure class="member reveal">
-            <div class="member__photo"><img src="assets/team/sachin.jpg" alt="Sachin Sajeevu" loading="lazy"></div>
-            <figcaption><strong>Sachin Sajeevu</strong><span>Director</span></figcaption>
-          </figure>
-          <figure class="member reveal">
-            <div class="member__photo"><img src="assets/team/pramod.jpg" alt="Pramod Kumar C.K" loading="lazy"></div>
-            <figcaption><strong>Pramod Kumar C.K</strong><span>General Manager</span></figcaption>
-          </figure>
-        </div>
-
-        <h3 class="team__label reveal">Managers</h3>
-        <div class="team team--4">
-          <figure class="member reveal">
-            <div class="member__photo"><img src="assets/team/binish.jpg" alt="Binish M.A" loading="lazy"></div>
-            <figcaption><strong>Binish M.A</strong><span>Manager — Farm</span></figcaption>
-          </figure>
-          <figure class="member reveal">
-            <div class="member__photo"><img src="assets/team/albin.jpg" alt="Albin" loading="lazy"></div>
-            <figcaption><strong>Albin</strong><span>Manager — Exports</span></figcaption>
-          </figure>
-          <figure class="member reveal">
-            <div class="member__photo"><img src="assets/team/anilkumar.jpg" alt="Anilkumar M.R" loading="lazy"></div>
-            <figcaption><strong>Anilkumar M.R</strong><span>Manager — Marketing</span></figcaption>
-          </figure>
-          <figure class="member reveal">
-            <div class="member__photo"><img src="assets/team/ummer.jpg" alt="Ummer C" loading="lazy"></div>
-            <figcaption><strong>Ummer C</strong><span>Manager — Finance</span></figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- Vision / Mission / Principles -->
-    <section class="section vision" id="vision">
+    
+    <section class="section vision vision--teaser">
       <div class="container">
         <div class="vision__hero reveal">
           <p class="kicker kicker--light">Our Vision</p>
           <blockquote>To be a trusted, admired, and enduring organization that enriches lives through <em>tradition, innovation,</em> and <em>excellence</em> across industries.</blockquote>
-        </div>
-
-        <div class="vision__grid">
-          <div class="mission reveal">
-            <p class="kicker kicker--light">Our Mission</p>
-            <ol class="mission__list">
-              <li><span>01</span>Preserve and promote Kerala’s agricultural heritage.</li>
-              <li><span>02</span>Deliver world-class products and services.</li>
-              <li><span>03</span>Empower communities and foster sustainable growth.</li>
-              <li><span>04</span>Create value responsibly for our stakeholders and society.</li>
-            </ol>
-          </div>
-
-          <div class="principles">
-            <p class="kicker kicker--light reveal">Our Principles</p>
-            <div class="principles__grid">
-              <div class="principle reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 8l7-5 7 5M5 21h14"/></svg><span>Honor Tradition, Embrace Progress</span></div>
-              <div class="principle reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10V6z"/></svg><span>Integrity as Our Foundation</span></div>
-              <div class="principle reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg><span>Excellence in Every Endeavor</span></div>
-              <div class="principle reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21c0-9 6-15 15-16-1 9-7 15-15 16zM5 21l8-8"/></svg><span>Sustainability at the Core</span></div>
-              <div class="principle reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><span>Empowering Through Innovation</span></div>
-              <div class="principle reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5M15 14.6c2.8-.3 5.2 1.3 6 4.4"/></svg><span>Community Before Self</span></div>
-            </div>
+          <div class="vision__actions">
+            <a href="vision.html" class="btn btn--gold">Mission &amp; Principles <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="leadership.html" class="btn btn--ghost">Meet Our Leadership</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Invitation -->
     <section class="section invite">
       <div class="container invite__inner">
         <div class="invite__logo reveal"><img src="assets/img/logo.jpg" alt=""></div>
         <p class="invite__text reveal">We warmly invite you to be part of our journey — a journey that celebrates life, nurtures communities, and creates lasting value for generations to come.</p>
         <h2 class="invite__title reveal">Together, let’s <em>grow,</em> <em>inspire,</em> and <em>achieve.</em></h2>
-        <a href="#contact" class="btn btn--gold reveal">Start a Conversation</a>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="section contact" id="contact">
-      <div class="container">
-        <div class="section__head">
-          <p class="kicker reveal">Contact</p>
-          <h2 class="section__title reveal">Let’s build something <em>lasting.</em></h2>
-        </div>
-
-        <div class="contact__grid">
-          <div class="offices">
-            <article class="office reveal">
-              <div class="office__head">
-                <span class="office__flag">IN</span>
-                <div><h3>India</h3><p>Sajeevu P.I</p></div>
-              </div>
-              <ul class="office__list">
-                <li>
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-                  <span>Ponoly, Chembakassery Villa,<br>Thekkekavupura, Irinjalakuda, Kerala</span>
-                </li>
-                <li>
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
-                  <span><a href="tel:+919995322603">+91 99953 22603</a><br><a href="tel:+918921487525">+91 89214 87525</a></span>
-                </li>
-                <li>
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-                  <a href="mailto:sreechandinisfarm@gmail.com">sreechandinisfarm@gmail.com</a>
-                </li>
-              </ul>
-            </article>
-
-            <article class="office reveal">
-              <div class="office__head">
-                <span class="office__flag">IL</span>
-                <div><h3>Israel</h3><p>Pradeepa Sajeevu</p></div>
-              </div>
-              <ul class="office__list">
-                <li>
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-                  <span>C/O Mary Benhamu, Moshav Bargiyora,<br>(Rohavagaphen) 41 Street, Jerusalem, Israel</span>
-                </li>
-                <li>
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
-                  <a href="tel:+972559622823">+972 55-962-2823</a>
-                </li>
-                <li>
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-                  <a href="mailto:sreechandinisfarm@gmail.com">sreechandinisfarm@gmail.com</a>
-                </li>
-              </ul>
-            </article>
-          </div>
-
-          <form class="form reveal" id="contactForm" novalidate>
-            <h3>Send us a message</h3>
-            <p class="form__note">We’ll get back to you as soon as possible.</p>
-            <div class="form__row">
-              <label class="field">
-                <input type="text" name="name" placeholder=" " required>
-                <span>Your name</span>
-              </label>
-              <label class="field">
-                <input type="email" name="email" placeholder=" " required>
-                <span>Email address</span>
-              </label>
-            </div>
-            <label class="field field--select">
-              <select name="division" required>
-                <option value="" disabled selected hidden></option>
-                <option>Farm Products &amp; Farm Stay</option>
-                <option>Dairy Exports (Pavithra)</option>
-                <option>Temple Trust (Sivam Foundation)</option>
-                <option>Emma Gold &amp; Diamonds</option>
-                <option>Sreerudram Creations (Film)</option>
-                <option>General Enquiry</option>
-              </select>
-              <span>Interested in</span>
-            </label>
-            <label class="field">
-              <textarea name="message" rows="4" placeholder=" " required></textarea>
-              <span>Your message</span>
-            </label>
-            <button type="submit" class="btn btn--gold btn--block">Send Message
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </button>
-            <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
-          </form>
-        </div>
+        <a href="contact.html" class="btn btn--gold reveal">Start a Conversation</a>
       </div>
     </section>
   </main>
@@ -520,7 +304,7 @@
   <footer class="footer">
     <div class="container footer__grid">
       <div class="footer__brand">
-        <a href="#home" class="brand brand--footer">
+        <a href="index.html" class="brand brand--footer">
           <span class="brand__mark"><img src="assets/img/logo.jpg" alt=""></span>
           <span class="brand__text"><strong>Sreechandhinees</strong><small>Group of Companies</small></span>
         </a>
@@ -529,20 +313,20 @@
       <div>
         <h4>Divisions</h4>
         <ul>
-          <li><a href="#farm">Farm Products &amp; Farm Stay</a></li>
-          <li><a href="#dairy">Dairy Exports</a></li>
-          <li><a href="#temple">Temple Trust</a></li>
-          <li><a href="#jewelry">Emma Gold &amp; Diamonds</a></li>
-          <li><a href="#film">Sreerudram Creations</a></li>
+          <li><a href="farm.html">Farm Products &amp; Farm Stay</a></li>
+          <li><a href="dairy.html">Dairy Exports</a></li>
+          <li><a href="temple.html">Temple Trust</a></li>
+          <li><a href="jewelry.html">Emma Gold &amp; Diamonds</a></li>
+          <li><a href="film.html">Sreerudram Creations</a></li>
         </ul>
       </div>
       <div>
         <h4>Company</h4>
         <ul>
-          <li><a href="#about">Who We Are</a></li>
-          <li><a href="#leadership">Leadership</a></li>
-          <li><a href="#vision">Vision &amp; Mission</a></li>
-          <li><a href="#partner">Our Partner</a></li>
+          <li><a href="about.html">Who We Are</a></li>
+          <li><a href="leadership.html">Leadership</a></li>
+          <li><a href="vision.html">Vision &amp; Mission</a></li>
+          <li><a href="partner.html">Our Partner</a></li>
         </ul>
       </div>
       <div>
@@ -561,7 +345,7 @@
     </div>
   </footer>
 
-  <a href="#home" class="to-top" id="toTop" aria-label="Back to top">
+  <a href="#" class="to-top" id="toTop" aria-label="Back to top">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
   </a>
 

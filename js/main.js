@@ -5,14 +5,17 @@
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- Preloader ---------- */
-  document.body.classList.add("is-loading");
-  const hidePreloader = () => {
-    $("#preloader")?.classList.add("is-done");
-    document.body.classList.remove("is-loading");
-  };
-  window.addEventListener("load", () => setTimeout(hidePreloader, 600));
-  setTimeout(hidePreloader, 3500); // safety net on slow networks
+  /* ---------- Preloader (home page only) ---------- */
+  const preloader = $("#preloader");
+  if (preloader) {
+    document.body.classList.add("is-loading");
+    const hidePreloader = () => {
+      preloader.classList.add("is-done");
+      document.body.classList.remove("is-loading");
+    };
+    window.addEventListener("load", () => setTimeout(hidePreloader, 600));
+    setTimeout(hidePreloader, 3500); // safety net on slow networks
+  }
 
   /* ---------- Header + back-to-top ---------- */
   const header = $("#header");
@@ -93,32 +96,6 @@
   );
   $$("[data-count]").forEach((el) => counterIO.observe(el));
 
-  /* ---------- Active nav link ---------- */
-  const navLinks = $$(".nav__link");
-  const divTabs = $$(".div-tab");
-  const sectionIO = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const id = entry.target.id;
-        navLinks.forEach((l) => l.classList.toggle("is-active", l.getAttribute("href") === `#${id}`));
-      });
-    },
-    { rootMargin: "-45% 0px -50% 0px" }
-  );
-  $$("main section[id]").forEach((s) => sectionIO.observe(s));
-
-  const divisionIO = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        divTabs.forEach((t) => t.classList.toggle("is-active", t.getAttribute("href") === `#${entry.target.id}`));
-      });
-    },
-    { rootMargin: "-45% 0px -50% 0px" }
-  );
-  $$(".division").forEach((d) => divisionIO.observe(d));
-
   /* ---------- Subtle parallax on images ---------- */
   const parallaxEls = $$("[data-parallax]");
   if (!reduceMotion && parallaxEls.length) {
@@ -140,6 +117,103 @@
     update();
   }
 
+  /* ---------- Hero image slider ---------- */
+  const slider = $("#heroSlider");
+  if (slider) {
+    const slides = $$(".slide", slider);
+    const dotsWrap = $(".slider-dots", slider);
+    const card = $(".hero__card", slider);
+    const num = $("#slideNum");
+    const label = $("#slideLabel");
+    const title = $("#slideTitle");
+    const DELAY = 5000;
+    slider.style.setProperty("--slide-ms", `${DELAY}ms`);
+
+    const dots = slides.map((s, i) => {
+      const dot = document.createElement("button");
+      dot.className = "slider-dot";
+      dot.setAttribute("role", "tab");
+      dot.setAttribute("aria-label", `Show ${s.dataset.title.replace("&amp;", "&")}`);
+      dot.addEventListener("click", () => go(i, true));
+      dotsWrap.appendChild(dot);
+      return dot;
+    });
+
+    let current = 0;
+    let timer = null;
+    let paused = false;
+
+    const go = (index, user = false) => {
+      const next = (index + slides.length) % slides.length;
+      if (next === current && !user) return;
+      const prev = slides[current];
+      if (next !== current) {
+        prev.classList.remove("is-active");
+        prev.classList.add("is-leaving");
+        setTimeout(() => prev.classList.remove("is-leaving"), 1100);
+      }
+      current = next;
+      const s = slides[current];
+      s.classList.add("is-active");
+
+      dots.forEach((d, i) => {
+        d.classList.toggle("is-active", i === current);
+        d.classList.toggle("is-done", i < current);
+        d.setAttribute("aria-selected", String(i === current));
+      });
+      // restart the progress-bar animation on the active dot
+      const active = dots[current];
+      active.classList.remove("is-active");
+      void active.offsetWidth;
+      active.classList.add("is-active");
+
+      card.classList.add("is-swapping");
+      setTimeout(() => {
+        num.textContent = String(current + 1).padStart(2, "0");
+        label.textContent = s.dataset.label;
+        title.innerHTML = s.dataset.title;
+        title.href = s.dataset.href;
+        card.classList.remove("is-swapping");
+      }, 300);
+
+      schedule();
+    };
+
+    const schedule = () => {
+      clearTimeout(timer);
+      if (!paused && !reduceMotion) timer = setTimeout(() => go(current + 1), DELAY);
+    };
+    const setPaused = (p) => {
+      paused = p;
+      slider.classList.toggle("is-paused", p);
+      if (p) clearTimeout(timer); else schedule();
+    };
+
+    $$(".slider-btn", slider).forEach((b) => b.addEventListener("click", () => go(current + Number(b.dataset.dir), true)));
+    slider.addEventListener("mouseenter", () => setPaused(true));
+    slider.addEventListener("mouseleave", () => setPaused(false));
+    slider.addEventListener("focusin", () => setPaused(true));
+    slider.addEventListener("focusout", () => setPaused(false));
+    document.addEventListener("visibilitychange", () => setPaused(document.hidden));
+    slider.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") go(current + 1, true);
+      if (e.key === "ArrowLeft") go(current - 1, true);
+    });
+
+    // swipe on touch screens
+    let startX = null;
+    const arch = $(".hero__arch", slider);
+    arch.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
+    arch.addEventListener("touchend", (e) => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(current + (dx < 0 ? 1 : -1), true);
+      startX = null;
+    });
+
+    go(0, true);
+  }
+
   /* ---------- Hero tilt on pointer move ---------- */
   const visual = $(".hero__visual");
   if (visual && !reduceMotion && window.matchMedia("(pointer: fine)").matches) {
@@ -157,7 +231,7 @@
   /* ---------- Contact form (opens the visitor's mail app) ---------- */
   const form = $("#contactForm");
   const status = $("#formStatus");
-  form.addEventListener("submit", (e) => {
+  if (form) form.addEventListener("submit", (e) => {
     e.preventDefault();
     let valid = true;
     $$("input, select, textarea", form).forEach((field) => {
@@ -176,7 +250,7 @@
     status.textContent = "Thank you! Your mail app will open to send the message.";
     form.reset();
   });
-  $$("input, select, textarea", form).forEach((f) =>
+  if (form) $$("input, select, textarea", form).forEach((f) =>
     f.addEventListener("input", () => f.closest(".field").classList.remove("is-invalid"))
   );
 
