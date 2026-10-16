@@ -117,115 +117,33 @@
     update();
   }
 
-  /* ---------- Hero image slider ---------- */
-  const slider = $("#heroSlider");
-  if (slider) {
-    const slides = $$(".slide", slider);
-    const dotsWrap = $(".slider-dots", slider);
-    const card = $(".hero__card", slider);
-    const num = $("#slideNum");
-    const label = $("#slideLabel");
-    const title = $("#slideTitle");
-    const DELAY = 5000;
-    slider.style.setProperty("--slide-ms", `${DELAY}ms`);
+  /* ---------- Hero background slideshow ---------- */
+  const heroSlides = $$(".hero__slide");
+  const heroDots = $("#heroDots");
+  if (heroSlides.length > 1 && heroDots) {
+    const DELAY = 6000;
+    let current = 0;
+    let timer = null;
 
-    const dots = slides.map((s, i) => {
+    const dots = heroSlides.map((_, i) => {
       const dot = document.createElement("button");
-      dot.className = "slider-dot";
-      dot.setAttribute("role", "tab");
-      dot.setAttribute("aria-label", `Show ${s.dataset.title.replace("&amp;", "&")}`);
-      dot.addEventListener("click", () => go(i, true));
-      dotsWrap.appendChild(dot);
+      dot.className = "hero__dot";
+      dot.setAttribute("aria-label", `Show background ${i + 1}`);
+      dot.addEventListener("click", () => go(i));
+      heroDots.appendChild(dot);
       return dot;
     });
 
-    let current = 0;
-    let timer = null;
-    let paused = false;
-
-    const go = (index, user = false) => {
-      const next = (index + slides.length) % slides.length;
-      if (next === current && !user) return;
-      const prev = slides[current];
-      if (next !== current) {
-        prev.classList.remove("is-active");
-        prev.classList.add("is-leaving");
-        setTimeout(() => prev.classList.remove("is-leaving"), 1100);
-      }
-      current = next;
-      const s = slides[current];
-      s.classList.add("is-active");
-
-      dots.forEach((d, i) => {
-        d.classList.toggle("is-active", i === current);
-        d.classList.toggle("is-done", i < current);
-        d.setAttribute("aria-selected", String(i === current));
-      });
-      // restart the progress-bar animation on the active dot
-      const active = dots[current];
-      active.classList.remove("is-active");
-      void active.offsetWidth;
-      active.classList.add("is-active");
-
-      card.classList.add("is-swapping");
-      setTimeout(() => {
-        num.textContent = String(current + 1).padStart(2, "0");
-        label.textContent = s.dataset.label;
-        title.innerHTML = s.dataset.title;
-        title.href = s.dataset.href;
-        card.classList.remove("is-swapping");
-      }, 300);
-
-      schedule();
-    };
-
-    const schedule = () => {
+    const go = (index) => {
+      current = (index + heroSlides.length) % heroSlides.length;
+      heroSlides.forEach((s, i) => s.classList.toggle("is-active", i === current));
+      dots.forEach((d, i) => d.classList.toggle("is-active", i === current));
       clearTimeout(timer);
-      if (!paused && !reduceMotion) timer = setTimeout(() => go(current + 1), DELAY);
-    };
-    const setPaused = (p) => {
-      paused = p;
-      slider.classList.toggle("is-paused", p);
-      if (p) clearTimeout(timer); else schedule();
+      if (!reduceMotion && !document.hidden) timer = setTimeout(() => go(current + 1), DELAY);
     };
 
-    $$(".slider-btn", slider).forEach((b) => b.addEventListener("click", () => go(current + Number(b.dataset.dir), true)));
-    slider.addEventListener("mouseenter", () => setPaused(true));
-    slider.addEventListener("mouseleave", () => setPaused(false));
-    slider.addEventListener("focusin", () => setPaused(true));
-    slider.addEventListener("focusout", () => setPaused(false));
-    document.addEventListener("visibilitychange", () => setPaused(document.hidden));
-    slider.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowRight") go(current + 1, true);
-      if (e.key === "ArrowLeft") go(current - 1, true);
-    });
-
-    // swipe on touch screens
-    let startX = null;
-    const arch = $(".hero__arch", slider);
-    arch.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
-    arch.addEventListener("touchend", (e) => {
-      if (startX === null) return;
-      const dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 40) go(current + (dx < 0 ? 1 : -1), true);
-      startX = null;
-    });
-
-    go(0, true);
-  }
-
-  /* ---------- Hero tilt on pointer move ---------- */
-  const visual = $(".hero__visual");
-  if (visual && !reduceMotion && window.matchMedia("(pointer: fine)").matches) {
-    const hero = $(".hero");
-    hero.addEventListener("pointermove", (e) => {
-      const r = hero.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - 0.5;
-      const y = (e.clientY - r.top) / r.height - 0.5;
-      visual.style.transform = `perspective(1000px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
-    });
-    hero.addEventListener("pointerleave", () => { visual.style.transform = ""; });
-    visual.style.transition = "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 1s, translate 1s";
+    document.addEventListener("visibilitychange", () => go(current));
+    go(0);
   }
 
   /* ---------- Contact form (opens the visitor's mail app) ---------- */

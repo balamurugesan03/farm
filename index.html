@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20261016">
+  <link rel="stylesheet" href="css/style.css?v=20261016c">
 </head>
 <body class="page-home">
 
@@ -53,8 +53,10 @@
   <main>
     <section class="hero" id="home">
       <div class="hero__bg" aria-hidden="true">
-        <div class="hero__glow hero__glow--1"></div>
-        <div class="hero__glow hero__glow--2"></div>
+        <div class="hero__slide is-active" style="background-image: url('assets/img/bgimg.jpeg')"></div>
+        <div class="hero__slide" style="background-image: url('assets/img/farm.jpg')"></div>
+        <div class="hero__slide" style="background-image: url('assets/img/hero-art.jpg'); background-position: 50% 20%"></div>
+        <div class="hero__overlay"></div>
         <svg class="hero__lines" viewBox="0 0 800 800" preserveAspectRatio="none">
           <path d="M0 620 C 200 520, 420 760, 800 560" />
           <path d="M0 680 C 240 580, 460 820, 800 620" />
@@ -86,48 +88,9 @@
             <li><strong data-count="15" data-suffix="+">0</strong><span>Dairy Products</span></li>
           </ul>
         </div>
-
-        <div class="hero__visual reveal">
-          <div class="hero-slider" id="heroSlider" aria-roledescription="carousel" aria-label="Sreechandhinees divisions">
-            <div class="hero__arch">
-              <figure class="slide is-active" data-title="Sreechandhinees Group" data-label="Since our roots in Kerala" data-href="about.html">
-                <img src="assets/img/hero-art.jpg" alt="Kerala heritage collage — cow, paddy fields, coconut palms, dairy and cinema" style="object-position: 50% 15%">
-              </figure>
-              <figure class="slide" data-title="Farm Products &amp; Farm Stay" data-label="Division 01" data-href="farm.html">
-                <img src="assets/img/farm.jpg" alt="Cattle resting by the lake at the Sreechandhinees farm" loading="lazy" style="object-position: 38% 50%">
-              </figure>
-              <figure class="slide slide--contain" data-title="Pavithra Dairy Exports" data-label="Division 02" data-href="dairy.html">
-                <span class="slide__backdrop" style="background-image:url('assets/img/dairy-products.jpg')"></span>
-                <img src="assets/img/dairy-products.jpg" alt="Pavithra dairy products" loading="lazy">
-              </figure>
-              <figure class="slide slide--contain" data-title="Sivam Foundation Temple Trust" data-label="Division 03" data-href="temple.html">
-                <span class="slide__backdrop" style="background-image:url('assets/img/shivalinga.jpg')"></span>
-                <img src="assets/img/shivalinga.jpg" alt="Sree Dakshinamoorthi Vidyapeeth Shivalinga" loading="lazy">
-              </figure>
-              <figure class="slide" data-title="Emma Gold &amp; Diamonds" data-label="Division 04" data-href="jewelry.html">
-                <img src="assets/img/jewelry.jpg" alt="Traditional Kerala gold jewelry" loading="lazy" style="object-position: 50% 40%">
-              </figure>
-              <figure class="slide" data-title="Sreerudram Creations" data-label="Division 05" data-href="film.html">
-                <img src="assets/img/film.jpg" alt="Film clapperboard" loading="lazy" style="object-position: 45% 50%">
-              </figure>
-            </div>
-
-            <div class="hero__card glass" aria-live="polite">
-              <span class="hero__card-label"><b id="slideNum">01</b> / 06 · <span id="slideLabel">Since our roots in Kerala</span></span>
-              <a href="about.html" class="hero__card-value" id="slideTitle">Sreechandhinees Group</a>
-            </div>
-
-            <div class="slider-ui">
-              <button class="slider-btn" data-dir="-1" aria-label="Previous slide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
-              <div class="slider-dots" role="tablist"></div>
-              <button class="slider-btn" data-dir="1" aria-label="Next slide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
-            </div>
-          </div>
-          <div class="hero__badge">
-            <img src="assets/img/logo.jpg" alt="">
-          </div>
-        </div>
       </div>
+
+      <div class="hero__dots" id="heroDots" aria-label="Background slides"></div>
 
       <a href="#about" class="hero__scroll" aria-label="Scroll to about">
         <span>Scroll</span><i></i>
@@ -347,6 +310,6 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
   </a>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20261016c"></script>
 </body>
 </html>
