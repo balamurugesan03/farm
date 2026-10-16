@@ -318,13 +318,29 @@ em { font-style: italic; }
 .hero__title {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(2.8rem, 5.2vw, 8rem);
-  line-height: 1.02;
+  font-size: clamp(2.3rem, 4vw, 5.6rem);
+  line-height: 1.05;
   letter-spacing: -0.015em;
 }
 .hero__title em { color: var(--lime); font-weight: 500; }
 
-.hero__lead { margin-top: 28px; max-width: 52ch; font-size: clamp(1.08rem, 0.9vw, 1.4rem); color: rgba(255, 255, 255, 0.78); }
+.hero__lead { margin-top: 22px; max-width: 60ch; font-size: clamp(1rem, 0.85vw, 1.25rem); color: rgba(255, 255, 255, 0.78); }
+
+/* Slide-specific hero text, stacked in one grid cell so height never jumps */
+.hero__copy { display: grid; }
+.hero__text {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease), visibility 0s linear 0.9s;
+}
+.hero__text.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.9s var(--ease) 0.2s, transform 0.9s var(--ease) 0.2s, visibility 0s;
+}
 
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 38px; }
 
@@ -1105,8 +1121,8 @@ em { font-style: italic; }
 
   .hero { padding: calc(var(--header-h) + 28px) 0 72px; }
   .eyebrow { padding: 6px 12px; font-size: 0.7rem; gap: 8px; margin-bottom: 18px; }
-  .hero__title { font-size: clamp(2rem, 9vw, 2.6rem); line-height: 1.08; }
-  .hero__lead { margin-top: 16px; font-size: 0.98rem; line-height: 1.6; }
+  .hero__title { font-size: clamp(1.8rem, 8vw, 2.3rem); line-height: 1.1; }
+  .hero__lead { margin-top: 14px; font-size: 0.94rem; line-height: 1.55; }
   .hero__actions { gap: 10px; margin-top: 24px; }
   .hero__actions .btn { padding: 13px 20px; font-size: 0.9rem; }
   .hero__stats { gap: 16px 24px; margin-top: 32px; padding-top: 20px; }

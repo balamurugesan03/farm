@@ -120,6 +120,7 @@
   /* ---------- Hero background slideshow ---------- */
   const heroSlides = $$(".hero__slide");
   const heroDots = $("#heroDots");
+  const heroTexts = $$(".hero__text");
   if (heroSlides.length > 1 && heroDots) {
     const DELAY = 6000;
     let current = 0;
@@ -137,6 +138,10 @@
     const go = (index) => {
       current = (index + heroSlides.length) % heroSlides.length;
       heroSlides.forEach((s, i) => s.classList.toggle("is-active", i === current));
+      heroTexts.forEach((t, i) => {
+        t.classList.toggle("is-active", i === current);
+        t.setAttribute("aria-hidden", i === current ? "false" : "true");
+      });
       dots.forEach((d, i) => d.classList.toggle("is-active", i === current));
       clearTimeout(timer);
       if (!reduceMotion && !document.hidden) timer = setTimeout(() => go(current + 1), DELAY);
