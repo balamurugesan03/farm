@@ -1103,9 +1103,20 @@ em { font-style: italic; }
   .brand__text small { font-size: 0.56rem; }
   .brand__mark { width: 42px; height: 42px; }
 
-  .hero { padding-top: calc(var(--header-h) + 36px); }
-  .hero__stats { gap: 18px 28px; }
-  .hero__stats strong { font-size: 2.1rem; }
+  .hero { padding: calc(var(--header-h) + 28px) 0 72px; }
+  .eyebrow { padding: 6px 12px; font-size: 0.7rem; gap: 8px; margin-bottom: 18px; }
+  .hero__title { font-size: clamp(2rem, 9vw, 2.6rem); line-height: 1.08; }
+  .hero__lead { margin-top: 16px; font-size: 0.98rem; line-height: 1.6; }
+  .hero__actions { gap: 10px; margin-top: 24px; }
+  .hero__actions .btn { padding: 13px 20px; font-size: 0.9rem; }
+  .hero__stats { gap: 16px 24px; margin-top: 32px; padding-top: 20px; }
+  .hero__stats strong { font-size: 1.8rem; }
+  .hero__stats span { font-size: 0.68rem; letter-spacing: 0.1em; }
+  .hero__overlay {
+    background:
+      linear-gradient(90deg, rgba(7, 31, 19, 0.88) 0%, rgba(7, 31, 19, 0.6) 100%),
+      linear-gradient(0deg, rgba(7, 31, 19, 0.7) 0%, transparent 35%);
+  }
   .hero__scroll { display: none; }
   .hero__dots { right: 50%; transform: translateX(50%); bottom: 28px; }
 
