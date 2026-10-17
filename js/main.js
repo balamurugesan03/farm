@@ -117,40 +117,6 @@
     update();
   }
 
-  /* ---------- Hero background slideshow ---------- */
-  const heroSlides = $$(".hero__slide");
-  const heroDots = $("#heroDots");
-  const heroTexts = $$(".hero__text");
-  if (heroSlides.length > 1 && heroDots) {
-    const DELAY = 6000;
-    let current = 0;
-    let timer = null;
-
-    const dots = heroSlides.map((_, i) => {
-      const dot = document.createElement("button");
-      dot.className = "hero__dot";
-      dot.setAttribute("aria-label", `Show background ${i + 1}`);
-      dot.addEventListener("click", () => go(i));
-      heroDots.appendChild(dot);
-      return dot;
-    });
-
-    const go = (index) => {
-      current = (index + heroSlides.length) % heroSlides.length;
-      heroSlides.forEach((s, i) => s.classList.toggle("is-active", i === current));
-      heroTexts.forEach((t, i) => {
-        t.classList.toggle("is-active", i === current);
-        t.setAttribute("aria-hidden", i === current ? "false" : "true");
-      });
-      dots.forEach((d, i) => d.classList.toggle("is-active", i === current));
-      clearTimeout(timer);
-      if (!reduceMotion && !document.hidden) timer = setTimeout(() => go(current + 1), DELAY);
-    };
-
-    document.addEventListener("visibilitychange", () => go(current));
-    go(0);
-  }
-
   /* ---------- Contact form (opens the visitor's mail app) ---------- */
   const form = $("#contactForm");
   const status = $("#formStatus");
